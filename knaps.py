@@ -21,7 +21,6 @@ data_set_description, upload_data, preprocessing, modeling, implementation = st.
 
 with data_set_description:
     st.write("""# Data Set Description """)
-   with data_set_description:
     st.write("# Description ")
     st.write("Data Set Ini Adalah : Klasifikasi Harga Rumah di JakSel dan Tebet")
     st.write("""Dataset Harga Rumah merupakan daftar harga rumah yang terbagi menjadi 2 data, yaitu data harga rumah daerah Jaksel dan data harga rumah daerah Tebet. Data diambil dan dikumpulkan dari beberapa website penjualan seperti rumah123.com""")
