@@ -38,7 +38,6 @@ with data_set_description:
     """)
     
     st.write("Link Dataset pada kaggle : https://www.kaggle.com/datasets/wisnuanggara/daftar-harga-rumah")
-    st.write("Link Dataset pada github : https://raw.githubusercontent.com/Shintaalya/Datafile/main/citrus.csv")
     st.write("Link github Aplikasi : https://github.com/Shintaalya/repo")
     """)
 with upload_data:
