@@ -36,6 +36,7 @@ with data_set_description:
 7. KOTA = nama kota.
     """)
     
+    st.
     st.write("Link Dataset pada kaggle : https://www.kaggle.com/datasets/wisnuanggara/daftar-harga-rumah")
     st.write("Link github Aplikasi : https://github.com/Shintaalya/repo")
 
