@@ -17,7 +17,7 @@ st.title("LINEAR REGRESSION (POLYNOMIAL) ")
 st.write("##### Dr. Indah Agustien Siradjuddin, S.Kom., M.Kom ")
 st.write("==============================================================")
 
-data_set_description, upload_data, preprocessing, modeling, implementation = st.tabs(["Data Set Description", "Data", "Preprocessing", "Modeling", "Implementation"])
+data_set_description, upload_data, preprocessing, modeling, implementation = st.tabs(["Data Set Description", "Modeling", "Implementation"])
 
 with data_set_description:
     st.write("""# Data Set Description """)
@@ -38,92 +38,7 @@ with data_set_description:
     
     st.write("Link Dataset pada kaggle : https://www.kaggle.com/datasets/wisnuanggara/daftar-harga-rumah")
     st.write("Link github Aplikasi : https://github.com/Shintaalya/repo")
-    """)
-with upload_data:
-
-    df = pd.read_csv('https://raw.githubusercontent.com/Ais-122/Machine-Learning/main/indian_liver_patient.csv')
-    st.dataframe(df)
-
-with preprocessing:
-    st.subheader("""Normalisasi Data""")
-    st.write("""Rumus Normalisasi Data :""")
-    st.image('https://i.stack.imgur.com/EuitP.png', use_column_width=False, width=250)
-    st.markdown("""
-    Dimana :
-    - X = data yang akan dinormalisasi atau data asli
-    - min = nilai minimum semua data asli
-    - max = nilai maksimum semua data asli
-    """)
-
-    #Mendefinisikan Varible X dan Y
-    X = df[['Age','Gender','Total_Bilirubin','Direct_Bilirubin','Alkaline_Phosphotase','Alamine_Aminotransferase','Aspartate_Aminotransferase','Total_Protiens',
-            'Albumin','Albumin_and_Globulin_Ratio']]
-    y = df['Dataset'].values
-    df
-    X
-    df_min = X.min()
-    df_max = X.max()
-    
-    #NORMALISASI NILAI X
-    scaler = MinMaxScaler()
-    #scaler.fit(features)
-    #scaler.transform(features)
-    scaled = scaler.fit_transform(X)
-    features_names = X.columns.copy()
-    #features_names.remove('label')
-    scaled_features = pd.DataFrame(scaled, columns=features_names)
-
-    st.subheader('Hasil Normalisasi Data')
-    st.write(scaled_features)
-
-    st.subheader('Target Label')
-    dumies = pd.get_dummies(df.Dataset).columns.values.tolist()
-    dumies = np.array(dumies)
-
-    labels = pd.DataFrame({
-        '1' : [dumies[0]],
-        '2' : [dumies[1]],
-       
-        
-    })
-
-    st.write(labels)
-
-    # st.subheader("""Normalisasi Data""")
-    # st.write("""Rumus Normalisasi Data :""")
-    # st.image('https://i.stack.imgur.com/EuitP.png', use_column_width=False, width=250)
-    # st.markdown("""
-    # Dimana :
-    # - X = data yang akan dinormalisasi atau data asli
-    # - min = nilai minimum semua data asli
-    # - max = nilai maksimum semua data asli
-    # """)
-    # df.weather.value_counts()
-    # df = df.drop(columns=["date"])
-    # #Mendefinisikan Varible X dan Y
-    # X = df.drop(columns=['weather'])
-    # y = df['weather'].values
-    # df_min = X.min()
-    # df_max = X.max()
-
-    
-    # #NORMALISASI NILAI X
-    # scaler = MinMaxScaler()
-    # #scaler.fit(features)
-    # #scaler.transform(features)
-    # scaled = scaler.fit_transform(X)
-    # features_names = X.columns.copy()
-    # #features_names.remove('label')
-    # scaled_features = pd.DataFrame(scaled, columns=features_names)
-
-    # #Save model normalisasi
-    # from sklearn.utils.validation import joblib
-    # norm = "normalisasi.save"
-    # joblib.dump(scaled_features, norm) 
-
-
-    # st.subheader('Hasil Normalisasi Data')
-    # st.write(scaled_features)
+    """
 
 with modeling:
     training, test = train_test_split(scaled_features,test_size=0.2, random_state=1)#Nilai X training dan Nilai X testing
