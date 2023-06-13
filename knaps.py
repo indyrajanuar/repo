@@ -16,11 +16,11 @@ from sklearn.tree import DecisionTreeClassifier
 st.title("MACHINE LEARNING")
 
 data_set_description, upload_data, preprocessing, modeling, implementation = st.tabs(["Data Set Description", "Data", "Preprocessing", "Modeling", "Implementation"])
-st.write("==============================================================")
+
 with data_set_description:
     st.write("##### Linear Regression dan Polynomial Regression ")
     st.write("##### Dr. Indah Agustien Siradjuddin, S.Kom., M.Kom ")
-    st.write("##### Kelas : Penambangan Data B ")
+    st.write("==============================================================")
     st.write("""# Data Set Description """)
     st.write("###### Data set ini Adalah : Classification on Indian Liver Patient (Klasifikasi Pasien Liver India) ")
     st.write("###### Sumber Data Set dari Kaggle : https://raw.githubusercontent.com/Ais-122/Machine-Learning/main/indian_liver_patient.csv")
