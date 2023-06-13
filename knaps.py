@@ -13,7 +13,7 @@ from sklearn.tree import DecisionTreeClassifier
 
 
 
-st.title("LINEAR REGRESSION (POLYNOMIAL REGRESSION) ")
+st.title("LINEAR REGRESSION (POLYNOMIAL) ")
 st.write("##### Dr. Indah Agustien Siradjuddin, S.Kom., M.Kom ")
 st.write("==============================================================")
 
