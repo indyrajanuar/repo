@@ -38,7 +38,6 @@ with data_set_description:
     
     st.write("Link Dataset pada kaggle : https://www.kaggle.com/datasets/wisnuanggara/daftar-harga-rumah")
     st.write("Link github Aplikasi : https://github.com/Shintaalya/repo")
-    """
 
 with modeling:
     training, test = train_test_split(scaled_features,test_size=0.2, random_state=1)#Nilai X training dan Nilai X testing
