@@ -13,13 +13,14 @@ from sklearn.tree import DecisionTreeClassifier
 
 
 
-st.title("PENAMBANGAN DATA B")
+st.title("MACHINE LEARNING")
 
 data_set_description, upload_data, preprocessing, modeling, implementation = st.tabs(["Data Set Description", "Data", "Preprocessing", "Modeling", "Implementation"])
 
 with data_set_description:
-    st.write("##### Nama  : Aisyiyah Maulana Wibawati ")
-    st.write("##### Nim   : 200411100122 ")
+    st.write("==============================================================")
+    st.write("##### Linear Regression dan Polynomial Regression ")
+    st.write("##### Dr. Indah Agustien Siradjuddin, S.Kom., M.Kom ")
     st.write("##### Kelas : Penambangan Data B ")
     st.write("""# Data Set Description """)
     st.write("###### Data set ini Adalah : Classification on Indian Liver Patient (Klasifikasi Pasien Liver India) ")
