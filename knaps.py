@@ -14,6 +14,8 @@ from sklearn.tree import DecisionTreeClassifier
 
 
 st.title("LINEAR REGRESSION DAN POLYNOMIAL REGRESSION")
+st.write("##### Dr. Indah Agustien Siradjuddin, S.Kom., M.Kom ")
+st.write("==============================================================")
 
 data_set_description, upload_data, preprocessing, modeling, implementation = st.tabs(["Data Set Description", "Data", "Preprocessing", "Modeling", "Implementation"])
 
