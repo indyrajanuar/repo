@@ -17,7 +17,7 @@ st.title("LINEAR REGRESSION (POLYNOMIAL) ")
 st.write("##### Dr. Indah Agustien Siradjuddin, S.Kom., M.Kom ")
 st.write("==============================================================")
 
-data_set_description, data,  modeling, implementation = st.tabs(["Data Set Description", "Data" "Modeling", "Implementation"])
+data_set_description, data,  modeling, implementation = st.tabs(["Data Set Description", "Data", "Modeling", "Implementation"])
 
 with data_set_description:
     st.write("# Description ")
