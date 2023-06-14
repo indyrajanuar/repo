@@ -49,9 +49,15 @@ if choose=='Dataset':
 
 if choose=='Prepocessing':
     st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
-    logo = Image.open('makam.jpeg')
+    st.write("Dari 7 Fitur")
+    logo = Image.open('dataset.png')
+    st.write(" ")
+    st.write(" ")
+    st.write(" ")
+    st.write("Diseleksi menjadi 2 Fitur")
+    logo = Image.open('dataset2.png')
     st.image(logo, caption='')
-    st.write('<p style = "text-align: justify;">Dataset Harga Rumah merupakan daftar harga rumah yang terbagi menjadi 2 data, yaitu data harga rumah daerah Jaksel dan data harga rumah daerah Tebet. Data diambil dan dikumpulkan dari beberapa website penjualan seperti rumah123.com</p>', unsafe_allow_html = True)
+   
     
     
 if choose=='Predict':
