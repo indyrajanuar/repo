@@ -56,7 +56,12 @@ if choose=='Predict':
      pilih_LB = st.integer(
         'Input LB',
     btn = st.button('Prediksi')
-
+    if btn:
+        df = pd.read_csv('https://raw.githubusercontent.com/AriAndiM/dataset/main/data-pariwisata-syaikhona.csvhttps://raw.githubusercontent.com/Shintaalya/repo/main/HARGA%20RUMAH%20JAKSEL.csv')
+        X = df['Bulan']
+        y = df['Jumlah']
+        X = X.values.reshape(-1, 1)
+        y = y.values.reshape(-1, 1)
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1,shuffle=False)
         # Melatih model
         model.fit(X_train, y_train)
