@@ -54,7 +54,7 @@ if choose=='Predict':
     pilih_LT = st.selectbox(
         'Pilih LT',
         ('1', '2', '3' , '4', '5', '6', '7', '8', '9', '10'))
-     pilih_LB = st.selectbox(
+    pilih_LB = st.selectbox(
         'Pilih LT',
         ('1', '2', '3' , '4', '5', '6', '7', '8', '9', '10'))
     btn = st.button('Prediksi')
