@@ -42,8 +42,8 @@ if choose=='Home':
     st.write("Dr. Indah Agustien Siradjuddin")
 
 if choose=='Dataset':
-    st.markdown('<h1 style = "text-align: center;"> Data jumlah pengunjung pariwisata Syaichona Kholil </h1>', unsafe_allow_html = True)
-    df = pd.read_csv('https://raw.githubusercontent.com/AriAndiM/dataset/main/data-pariwisata-syaikhona.csv')
+    st.markdown('<h1 style = "text-align: center;"> Data Harga Rumah </h1>', unsafe_allow_html = True)
+    df = pd.read_csv('https://raw.githubusercontent.com/Shintaalya/repo/main/HARGA%20RUMAH%20JAKSEL.csv')
     df
     st.markdown('<h1 style = "text-align: center;"> Fitur Dataset: </h1><ol type = "1" style = "text-align: justify; background-color: #f2a916; padding: 30px; border-radius: 20px;"><p>Dataset didapatkan dari Dinas Pemuda Olahraga Dan Pariwisata Kabupaten Bangkalan. Data diambil pada tahun 2010-2022</p><li><i><b>Bulan</b></i> merupakan bulan pengunjung datang ke wisata.</li><li><i><b>Jumlah</b></i> merupakan jumlah pengunjung wisata di setiap bulan.</li></ol>', unsafe_allow_html = True)
 
