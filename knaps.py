@@ -56,7 +56,7 @@ if choose=='Predict':
         ('1', '2', '3' , '4', '5', '6', '7', '8', '9', '10'))
     btn = st.button('Prediksi')
     if btn:
-        df = pd.read_csv('https://raw.githubusercontent.com/AriAndiM/dataset/main/data-pariwisata-syaikhona.csvhttps://raw.githubusercontent.com/Shintaalya/repo/main/HARGA%20RUMAH%20JAKSEL.csv')
+        df = pd.read_csv('https://raw.githubusercontent.com/Shintaalya/repo/main/HARGA%20RUMAH%20JAKSEL.csv')
         X = df['Bulan']
         y = df['Jumlah']
         X = X.values.reshape(-1, 1)
