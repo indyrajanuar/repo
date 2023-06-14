@@ -45,7 +45,7 @@ if choose=='Dataset':
     st.markdown('<h1 style = "text-align: center;"> Data Harga Rumah </h1>', unsafe_allow_html = True)
     df = pd.read_csv('https://raw.githubusercontent.com/Shintaalya/repo/main/HARGA%20RUMAH%20JAKSEL.csv')
     df
-    st.markdown('<h1 style = "text-align: center;"> Fitur Dataset: </h1><ol type = "1" style = "text-align: justify; background-color: #f2a916; padding: 30px; border-radius: 20px;"><p>Dataset didapatkan dari Dinas Pemuda Olahraga Dan Pariwisata Kabupaten Bangkalan. Data diambil pada tahun 2010-2022</p><li><i><b>Bulan</b></i> merupakan bulan pengunjung datang ke wisata.</li><li><i><b>Jumlah</b></i> merupakan jumlah pengunjung wisata di setiap bulan.</li></ol>', unsafe_allow_html = True)
+    st.markdown('<h1 style = "text-align: center;"> Fitur Dataset: </h1><ol type = "1" style = "text-align: justify; background-color: #f2a916; padding: 30px; border-radius: 20px;"><p>Dataset ini diambil dari kaggle.com</p><li><i><b>HARGA</b></i> = harga dari rumah</li><li><i><b>LT</b></i> = Jumlah Luas Tanah</li></ol>', unsafe_allow_html = True)
 
 if choose=='Predict':
     st.markdown('<h1 style = "text-align: center;"> Prediksi jumlah pengunjung wisata pesarean Syaichona Kholil di Bangkalan</h1>', unsafe_allow_html = True)
