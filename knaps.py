@@ -56,11 +56,6 @@ if choose=='Predict':
      pilih_LB = st.integer(
         'Input LB',
     btn = st.button('Prediksi')
-        df = pd.read_csv('https://raw.githubusercontent.com/Shintaalya/repo/main/HARGA%20RUMAH%20JAKSEL.csv')
-        X = df['LT']
-        y = df['LB']
-        X = X.values.reshape(-1, 1)
-        y = y.values.reshape(-1, 1)
 
         # Membuat objek model Linear Regression
         model = LinearRegression()
