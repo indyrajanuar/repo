@@ -51,15 +51,15 @@ if choose=='Predict':
     st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
     logo = Image.open('plot_mape.png')
     st.image(logo, caption='')
-    pilih_LT = st.numerik(
+    pilih_LT = st.integer(
         'Input LT',
-     pilih_LB = st.numerik(
+     pilih_LB = st.integer(
         'Input LB',
     btn = st.button('Prediksi')
     if btn:
         df = pd.read_csv('https://raw.githubusercontent.com/Shintaalya/repo/main/HARGA%20RUMAH%20JAKSEL.csv')
-        X = df['Bulan']
-        y = df['Jumlah']
+        X = df['LT']
+        y = df['LB']
         X = X.values.reshape(-1, 1)
         y = y.values.reshape(-1, 1)
 
@@ -71,32 +71,7 @@ if choose=='Predict':
         model.fit(X_train, y_train)
         # Membuat prediksi pada data testing
         # y_pred = model.predict(X_test)
-        bulan = pilih_bulan
-        if bulan=='Januari':
-            b = 1
-        elif bulan=='Februari':
-            b = 2
-        elif bulan=='Maret':
-            b = 3
-        elif bulan=='April':
-            b = 4
-        elif bulan=='Mei':
-            b = 5
-        elif bulan=='Juni':
-            b = 6
-        elif bulan=='Juli':
-            b = 7
-        elif bulan=='Agustus':
-            b = 8
-        elif bulan=='September':
-            b = 9
-        elif bulan=='Oktober':
-            b = 10 
-        elif bulan=='November':
-            b = 11
-        elif bulan=='Desember':
-            b = 12
-
+      
         y_pred = model.predict([[b]])
         hasil = int(y_pred[0])
         st.write('Prediksi pengunjung pada bulan', b,'sebanyak :', hasil, 'pengunjung')
