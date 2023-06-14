@@ -33,6 +33,12 @@ if choose=='Home':
     st.write(" ")
     st.write(" ")
     st.write(" ")
+    st.write(" ")
+    st.write(" ")
+    st.write(" ")
+    st.write(" ")
+    st.write(" ")
+    st.write(" ")
     st.write("Dr. Indah Agustien Siradjuddin")
 
 if choose=='Dataset':
