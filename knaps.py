@@ -51,10 +51,9 @@ if choose=='Predict':
     st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
     logo = Image.open('plot_mape.png')
     st.image(logo, caption='')
-    pilih_LT = st.integer(
-        'Input LT',
-     pilih_LB = st.integer(
-        'Input LB',
+    pilih_LT = st.selectbox(
+        'Pilih LT',
+        ('1', '2', '3' , '4', '5', '6', '7', '8', '9', '10'))
     btn = st.button('Prediksi')
     if btn:
         df = pd.read_csv('https://raw.githubusercontent.com/AriAndiM/dataset/main/data-pariwisata-syaikhona.csvhttps://raw.githubusercontent.com/Shintaalya/repo/main/HARGA%20RUMAH%20JAKSEL.csv')
