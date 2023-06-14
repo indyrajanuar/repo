@@ -51,6 +51,7 @@ if choose=='Prepocessing':
     st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
     st.write("Dari 7 Fitur")
     logo = Image.open('dataset.png')
+    st.image(logo, caption='')
     st.write(" ")
     st.write(" ")
     st.write(" ")
