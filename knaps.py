@@ -1,102 +1,95 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import pickle
 from PIL import Image
-import altair as alt
-from sklearn.preprocessing import MinMaxScaler
-from sklearn import preprocessing
+from streamlit_option_menu import option_menu
+from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
-from sklearn.naive_bayes import GaussianNB
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import mean_absolute_percentage_error
 
+with st.sidebar:
+    choose = option_menu("Prediksi Harga Rumah", ["Home", "Dataset", "Prepocessing", "Predict", "Help"],
+                             icons=['house', 'table', 'boxes','check2-circle'],
+                             menu_icon="app-indicator", default_index=0,
+                             styles={
+            "container": {"padding": "5!important", "background-color": "10A19D"},
+            "icon": {"color": "orange", "font-size": "25px"}, 
+            "nav-link": {"font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+            "nav-link-selected": {"background-color": "#3D5656"},
+        }
+        )
+if choose=='Home':
+    st.markdown('<h1 style = "text-align: center;"> Wisata pesarean Syaichona Kholil di Bangkalan</h1>', unsafe_allow_html = True)
+    logo = Image.open('makam.jpg')
+    st.image(logo, caption='')
+    st.write('<p style = "text-align: justify;"> Wisata Makam Muhammad Syaikhona Kholil Bangkalan adalah salah satu tempat wisata yang berada di Kampung Senenan, Desa Kemayoran, Kecamatan Bangkalan, Kabupaten Bangkalan, ujung Barat Pulau Madura, Jawa Timur, Indonesia. Wisata Makam Muhammad Syaikhona Kholil Bangkalan adalah tempat wisata yangramai dengan wisatawan pada hari biasa maupun hari liburan. Tempat ini sangat indah dan bisa memberikan sensasi yang berbeda dengan aktivitas kita sehari hari. Wisata Makam Muhammad Syaikhona Kholil Bangkalan memiliki pesona sejarah yang sangat menarik untuk dikunjungi. Sangat di sayangkan jika anda berada di kota Bangkalan tidak mengunjungi wisata Makam Muhammad Syaikhona Kholil Bangkalan yang mempunyai keindahan yang tiada duanya tersebut. Wisata Makam Muhammad Syaikhona Kholil Bangkalan sangat cocok untuk mengisi kegiatan liburan anda, apalagi saat liburan panjang seperti libur nasional, ataupun hari ibur lainnya. Keindahan wisata Makam Muhammad Syaikhona Kholil Bangkalan ini sangatlah baik bagi anda semua yang berada di dekat atau di kejauhan untuk merapat mengunjungi tempat wisata Makam Muhammad Syaikhona Kholil di kota Bangkalan</p>', unsafe_allow_html = True)
 
+if choose=='Dataset':
+    st.markdown('<h1 style = "text-align: center;"> Data jumlah pengunjung pariwisata Syaichona Kholil </h1>', unsafe_allow_html = True)
+    df = pd.read_csv('https://raw.githubusercontent.com/AriAndiM/dataset/main/data-pariwisata-syaikhona.csv')
+    df
+    st.markdown('<h1 style = "text-align: center;"> Fitur Dataset: </h1><ol type = "1" style = "text-align: justify; background-color: #f2a916; padding: 30px; border-radius: 20px;"><p>Dataset didapatkan dari Dinas Pemuda Olahraga Dan Pariwisata Kabupaten Bangkalan. Data diambil pada tahun 2010-2022</p><li><i><b>Bulan</b></i> merupakan bulan pengunjung datang ke wisata.</li><li><i><b>Jumlah</b></i> merupakan jumlah pengunjung wisata di setiap bulan.</li></ol>', unsafe_allow_html = True)
 
-st.title("LINEAR REGRESSION (POLYNOMIAL) ")
-st.write("##### Dr. Indah Agustien Siradjuddin, S.Kom., M.Kom ")
-st.write("==============================================================")
+if choose=='Prepocessing':
+    st.markdown('<h1 style = "text-align: center;"> yyyyyyyyyyyyyyyyyyyyl </h1>', unsafe_allow_html = True)
+    df = pd.read_csv('https://raw.githubusercontent.com/AriAndiM/dataset/main/data-pariwisata-syaikhona.csv')
+    df
+    st.markdown('<h1 style = "text-align: center;"> Fitur Dataset: </h1><ol type = "1" style = "text-align: justify; background-color: #f2a916; padding: 30px; border-radius: 20px;"><p>Dataset didapatkan dari Dinas Pemuda Olahraga Dan Pariwisata Kabupaten Bangkalan. Data diambil pada tahun 2010-2022</p><li><i><b>Bulan</b></i> merupakan bulan pengunjung datang ke wisata.</li><li><i><b>Jumlah</b></i> merupakan jumlah pengunjung wisata di setiap bulan.</li></ol>', unsafe_allow_html = True)
 
-data_set_description, data,  modeling, implementation = st.tabs(["Data Set Description", "Data", "Modeling", "Implementation"])
+if choose=='Predict':
+    st.markdown('<h1 style = "text-align: center;"> Prediksi jumlah pengunjung wisata pesarean Syaichona Kholil di Bangkalan</h1>', unsafe_allow_html = True)
+    logo = Image.open('plot_mape.png')
+    st.image(logo, caption='')
+    pilih_bulan = st.selectbox(
+        'Pilih Bulan',
+        ('Januari', 'Februari', 'Maret' , 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'))
+    btn = st.button('Prediksi')
+    if btn:
+        df = pd.read_csv('https://raw.githubusercontent.com/AriAndiM/dataset/main/data-pariwisata-syaikhona.csv')
+        X = df['Bulan']
+        y = df['Jumlah']
+        X = X.values.reshape(-1, 1)
+        y = y.values.reshape(-1, 1)
 
-with data_set_description:
-    st.write("# Description ")
-    st.write("Data Set Ini Adalah : Klasifikasi Harga Rumah di JakSel dan Tebet")
-    st.write("""Dataset Harga Rumah merupakan daftar harga rumah yang terbagi menjadi 2 data, yaitu data harga rumah daerah Jaksel dan data harga rumah daerah Tebet. Data diambil dan dikumpulkan dari beberapa website penjualan seperti rumah123.com""")
-    st.write("""Terdapat 7 kolom """)
-    st.write("""Yaitu :
+        # Membuat objek model Linear Regression
+        model = LinearRegression()
 
-1. HARGA = harga dari rumah.
-2. LT = jumlah luas tanah.
-3. LB = jumlah luas bangunan.
-4. JKT = jumlah kamar tidur.
-5. JKM = jumlah kamar mandi.
-6. GRS = ada/tidak ada
-7. KOTA = nama kota.
-    """)
-    
-   
-    st.write("Link Dataset pada kaggle : https://www.kaggle.com/datasets/wisnuanggara/daftar-harga-rumah")
-    st.write("Link github Aplikasi : https://github.com/Shintaalya/repo")
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1,shuffle=False)
+        # Melatih model
+        model.fit(X_train, y_train)
+        # Membuat prediksi pada data testing
+        # y_pred = model.predict(X_test)
+        bulan = pilih_bulan
+        if bulan=='Januari':
+            b = 1
+        elif bulan=='Februari':
+            b = 2
+        elif bulan=='Maret':
+            b = 3
+        elif bulan=='April':
+            b = 4
+        elif bulan=='Mei':
+            b = 5
+        elif bulan=='Juni':
+            b = 6
+        elif bulan=='Juli':
+            b = 7
+        elif bulan=='Agustus':
+            b = 8
+        elif bulan=='September':
+            b = 9
+        elif bulan=='Oktober':
+            b = 10 
+        elif bulan=='November':
+            b = 11
+        elif bulan=='Desember':
+            b = 12
 
-with data:
-    st.write("# Dataset ")
-    df = pd.read_csv('https://raw.githubusercontent.com/Shintaalya/repo/main/HARGA%20RUMAH%20JAKSEL.csv')
-    st.dataframe(df)
+        y_pred = model.predict([[b]])
+        hasil = int(y_pred[0])
+        st.write('Prediksi pengunjung pada bulan', b,'sebanyak :', hasil, 'pengunjung')
 
-with modeling:
-    st.write("masih kosong")
-    
-with implementation:
-    with st.form("my_form"):
-        st.subheader("Implementasi")
-        Age = st.number_input('Masukkan umur (Age) : ')
-        Gender = st.number_input('Masukkan jenis kelamin berupa angka 1 : Laki-laki, 0 : Perempuan (Gender) : ')
-        Total_Bilirubin = st.number_input('Masukkan total bilirubin dalam darah - Berupa angka desimal (Total_Bilirubin) : ')
-        Direct_Bilirubin = st.number_input('Masukkan direct bilirubin - Berupa angka desimal (Direct_Bilirubin) : ')
-        Alkaline_Phosphotase = st.number_input('Masukkan Alkaline phosphotase - Berupa angka desimal (Alkaline_Phosphotase) : ')
-        Alamine_Aminotransferase = st.number_input('Masukkan Alamine Aminotransferase - Berupa angka desimal (Alamine_Aminotransferase) : ')
-        Aspartate_Aminotransferase = st.number_input('Masukkan Aspartate Aminotransferase - Berupa angka desimal (Aspartate_Aminotransferase) : ')
-        Total_Protiens = st.number_input('Masukkan Total Protiens - Berupa angka desimal (Total_Protiens) : ')
-        Albumin = st.number_input('Masukkan ALbumin - Berupa angka desimal (Albumin) : ')
-        Albumin_And_Globulin_Ratio = st.number_input('Masukkan Albumin dan Globulin Ratio - Berupa angka desimal (Albumin_And_Globulin_Ratio) : ')
-        
-        model = st.selectbox('Pilihlah model yang akan anda gunakan untuk melakukan prediksi?',
-                ('Gaussian Naive Bayes', 'K-NN', 'Decision Tree'))
-
-        prediksi = st.form_submit_button("Submit")
-        if prediksi:
-            inputs = np.array([
-                Age,
-                Gender,
-                Total_Bilirubin,
-                Direct_Bilirubin,
-                Alkaline_Phosphotase,
-                Alamine_Aminotransferase,
-                Aspartate_Aminotransferase,
-                Total_Protiens,
-                Albumin,
-                Albumin_And_Globulin_Ratio,
-                
-            ])
-
-            df_min = X.min()
-            df_max = X.max()
-            input_norm = ((inputs - df_min) / (df_max - df_min))
-            input_norm = np.array(input_norm).reshape(1, -1)
-
-            if model == 'Gaussian Naive Bayes':
-                mod = gaussian
-            if model == 'K-NN':
-                mod = knn 
-            if model == 'Decision Tree':
-                mod = dt
-
-               
-            input_pred = mod.predict(input_norm)
-
-
-            st.subheader('Hasil Prediksi')
-            st.write('Menggunakan Pemodelan :', model)
-
-            st.write(input_pred)
+if choose=='Help':
+    st.markdown('<h1 style = "text-align: center;"> Panduan : </h1><ol type = "1" style = "text-align: justify; background-color: #f2a916; padding: 30px; border-radius: 20px;"><li><i><b>Cara View Dataset</b></i> <ol type = "a"><li>Masuk ke sistem</li><li>Pilih menu dataset</li></ol></li><li><i><b>Cara Prediksi Pengunjung</b></i> <ol type = "a"><li>Pilih menu predict</li><li>Pilih bulan</li><li>Klik tombol prediksi</li></ol></li></ol>', unsafe_allow_html = True)
