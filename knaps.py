@@ -10,8 +10,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_percentage_error
 
 with st.sidebar:
-    choose = option_menu("Linear Regression (Polynomial)", ["Home", "Dataset", "Predict", "Help"],
-                             icons=['house', 'table', 'boxes','check2-circle'],
+    choose = option_menu("Linear Regression (Polynomial)", ["Home", "Dataset", "Prepocessing", "Predict", "Help"],
+                             icons=['house', 'table', 'boxes', 'boxes', 'check2-circle'],
                              menu_icon="app-indicator", default_index=0,
                              styles={
             "container": {"padding": "5!important", "background-color": "10A19D"},
@@ -47,6 +47,13 @@ if choose=='Dataset':
     df
     st.markdown('<h1 style = "text-align: center;"> Fitur Dataset: </h1><ol type = "1" style = "text-align: justify; background-color: #f2a916; padding: 30px; border-radius: 20px;"><p>Dataset ini diambil dari kaggle.com</p><li><i><b>HARGA</b></i> = harga dari rumah</li><li><i><b>LT</b></i> = Jumlah Luas Tanah</li><li><i><b>LB</b></i> = Jumlah Luas Bangunan</li><li><i><b>JKT</b></i> = Jumlah Kamar Tidur</li><li><i><b>JKM</b></i> = Jumlah Kamar Mandi</li><li><i><b>GRS</b></i> = Ada / Tidak Ada</li><li><i><b>KOTA</b></i> = Nama Kota</li></ol>', unsafe_allow_html = True)
 
+if choose=='Prepocessing':
+    st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
+    logo = Image.open('makam.jpeg')
+    st.image(logo, caption='')
+    st.write('<p style = "text-align: justify;">Dataset Harga Rumah merupakan daftar harga rumah yang terbagi menjadi 2 data, yaitu data harga rumah daerah Jaksel dan data harga rumah daerah Tebet. Data diambil dan dikumpulkan dari beberapa website penjualan seperti rumah123.com</p>', unsafe_allow_html = True)
+    
+    
 if choose=='Predict':
     st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
     logo = Image.open('plot_mape.png')
