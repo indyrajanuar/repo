@@ -21,7 +21,7 @@ with st.sidebar:
         }
         )
 if choose=='Home':
-    st.markdown('<h1 style = "text-align: center;"> Wisata pesarean Syaichona Kholil di Bangkalan</h1>', unsafe_allow_html = True)
+    st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
     logo = Image.open('makam.jpg')
     st.image(logo, caption='')
     st.write('<p style = "text-align: justify;"> Wisata Makam Muhammad Syaikhona Kholil Bangkalan adalah salah satu tempat wisata yang berada di Kampung Senenan, Desa Kemayoran, Kecamatan Bangkalan, Kabupaten Bangkalan, ujung Barat Pulau Madura, Jawa Timur, Indonesia. Wisata Makam Muhammad Syaikhona Kholil Bangkalan adalah tempat wisata yangramai dengan wisatawan pada hari biasa maupun hari liburan. Tempat ini sangat indah dan bisa memberikan sensasi yang berbeda dengan aktivitas kita sehari hari. Wisata Makam Muhammad Syaikhona Kholil Bangkalan memiliki pesona sejarah yang sangat menarik untuk dikunjungi. Sangat di sayangkan jika anda berada di kota Bangkalan tidak mengunjungi wisata Makam Muhammad Syaikhona Kholil Bangkalan yang mempunyai keindahan yang tiada duanya tersebut. Wisata Makam Muhammad Syaikhona Kholil Bangkalan sangat cocok untuk mengisi kegiatan liburan anda, apalagi saat liburan panjang seperti libur nasional, ataupun hari ibur lainnya. Keindahan wisata Makam Muhammad Syaikhona Kholil Bangkalan ini sangatlah baik bagi anda semua yang berada di dekat atau di kejauhan untuk merapat mengunjungi tempat wisata Makam Muhammad Syaikhona Kholil di kota Bangkalan</p>', unsafe_allow_html = True)
