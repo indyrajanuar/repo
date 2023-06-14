@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_percentage_error
 
 with st.sidebar:
-    choose = option_menu("Prediksi Harga Rumah", ["Home", "Dataset", "Predict", "Help"],
+    choose = option_menu("Linear Regression (Polynomial)", ["Home", "Dataset", "Predict", "Help"],
                              icons=['house', 'table', 'boxes','check2-circle'],
                              menu_icon="app-indicator", default_index=0,
                              styles={
@@ -25,6 +25,10 @@ if choose=='Home':
     logo = Image.open('makam.jpeg')
     st.image(logo, caption='')
     st.write('<p style = "text-align: justify;">Dataset Harga Rumah merupakan daftar harga rumah yang terbagi menjadi 2 data, yaitu data harga rumah daerah Jaksel dan data harga rumah daerah Tebet. Data diambil dan dikumpulkan dari beberapa website penjualan seperti rumah123.com</p>', unsafe_allow_html = True)
+    st.write(" ")
+    st.write(" ")
+    st.write(" ")
+    st.write("Dr. Indah Agustien Siradjuddin")
 
 if choose=='Dataset':
     st.markdown('<h1 style = "text-align: center;"> Data jumlah pengunjung pariwisata Syaichona Kholil </h1>', unsafe_allow_html = True)
