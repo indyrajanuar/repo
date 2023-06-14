@@ -57,9 +57,6 @@ if choose=='Predict':
         'Input LB',
     btn = st.button('Prediksi')
 
-        # Membuat objek model Linear Regression
-        model = LinearRegression()
-
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1,shuffle=False)
         # Melatih model
         model.fit(X_train, y_train)
