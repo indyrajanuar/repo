@@ -17,7 +17,7 @@ st.title("LINEAR REGRESSION (POLYNOMIAL) ")
 st.write("##### Dr. Indah Agustien Siradjuddin, S.Kom., M.Kom ")
 st.write("==============================================================")
 
-data_set_description, modeling, implementation = st.tabs(["Data Set Description", "Modeling", "Implementation"])
+data_set_description, data,  modeling, implementation = st.tabs(["Data Set Description", "Data" "Modeling", "Implementation"])
 
 with data_set_description:
     st.write("# Description ")
@@ -38,6 +38,11 @@ with data_set_description:
    
     st.write("Link Dataset pada kaggle : https://www.kaggle.com/datasets/wisnuanggara/daftar-harga-rumah")
     st.write("Link github Aplikasi : https://github.com/Shintaalya/repo")
+
+with data:
+    st.write("# Dataset ")
+    df = pd.read_csv('https://raw.githubusercontent.com/Shintaalya/Datafile/main/citrus.csv')
+    st.dataframe(df)
 
 with modeling:
     st.write("masih kosong")
