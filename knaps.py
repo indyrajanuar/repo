@@ -41,7 +41,7 @@ with data_set_description:
 
 with data:
     st.write("# Dataset ")
-    df = pd.read_csv('https://raw.githubusercontent.com/Shintaalya/Datafile/main/citrus.csv')
+    df = pd.read_csv('https://raw.githubusercontent.com/Shintaalya/repo/main/HARGA%20RUMAH%20JAKSEL.csv')
     st.dataframe(df)
 
 with modeling:
