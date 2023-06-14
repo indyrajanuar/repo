@@ -48,15 +48,16 @@ if choose=='Dataset':
     st.markdown('<h1 style = "text-align: center;"> Fitur Dataset: </h1><ol type = "1" style = "text-align: justify; background-color: #f2a916; padding: 30px; border-radius: 20px;"><p>Dataset ini diambil dari kaggle.com</p><li><i><b>HARGA</b></i> = harga dari rumah</li><li><i><b>LT</b></i> = Jumlah Luas Tanah</li><li><i><b>LB</b></i> = Jumlah Luas Bangunan</li><li><i><b>JKT</b></i> = Jumlah Kamar Tidur</li><li><i><b>JKM</b></i> = Jumlah Kamar Mandi</li><li><i><b>GRS</b></i> = Ada / Tidak Ada</li><li><i><b>KOTA</b></i> = Nama Kota</li></ol>', unsafe_allow_html = True)
 
 if choose=='Predict':
-    st.markdown('<h1 style = "text-align: center;"> Prediksi jumlah pengunjung wisata pesarean Syaichona Kholil di Bangkalan</h1>', unsafe_allow_html = True)
+    st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
     logo = Image.open('plot_mape.png')
     st.image(logo, caption='')
-    pilih_bulan = st.selectbox(
-        'Pilih Bulan',
-        ('Januari', 'Februari', 'Maret' , 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'))
+    pilih_LT = st.numerik(
+        'Input LT',
+     pilih_LB = st.numerik(
+        'Input LB',
     btn = st.button('Prediksi')
     if btn:
-        df = pd.read_csv('https://raw.githubusercontent.com/AriAndiM/dataset/main/data-pariwisata-syaikhona.csv')
+        df = pd.read_csv('https://raw.githubusercontent.com/Shintaalya/repo/main/HARGA%20RUMAH%20JAKSEL.csv')
         X = df['Bulan']
         y = df['Jumlah']
         X = X.values.reshape(-1, 1)
