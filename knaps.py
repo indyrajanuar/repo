@@ -104,6 +104,7 @@ def denormalize_data(data):
     return denormalized_data
 
 # Streamlit app code
+    def mainn():
     st.title('Prediksi Harga Rumah')
 
     # Input form
@@ -130,3 +131,5 @@ def denormalize_data(data):
     # Display the prediction
     st.subheader('Hasil Prediksi')
     st.write(prediction[0])
+if __name__ == "__main__":
+    mainn()
