@@ -22,7 +22,7 @@ with st.sidebar:
             "nav-link-selected": {"background-color": "#00FFFF"},
         }
         )
-elif choose=='Home':
+if choose=='Home':
     st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
     logo = Image.open('makam1.jpg')
 
