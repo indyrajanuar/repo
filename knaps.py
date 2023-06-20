@@ -69,6 +69,11 @@ if choose=='Predict':
     logo = Image.open('eror.png')
     st.image(logo, caption='')
     import pickle
+    import urllib.request
+
+    # Mendownload file model.pkl
+    url = 'https://raw.githubusercontent.com/Shintaalya/repo/main/model.pkl'
+    filename, headers = urllib.request.urlretrieve(url)
     # Load the model
     with open('model.pkl','rb') as file:
     model_data = pickle.load(file)
