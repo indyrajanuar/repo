@@ -102,6 +102,19 @@ if choose=='Predict':
         denormalized_data = (data * y_train_std) + y_train_mean
         return denormalized_data
 
+    # Save the updated model.pkl
+         updated_model_data = {
+        'model': model,
+        'X_train_mean': X_train_mean,
+        'X_train_std': X_train_std,
+        'y_train_mean': y_train_mean,
+        'y_train_std': y_train_std,
+        'predict_price': predict_price
+        }
+
+with open('updated_model.pkl', 'wb') as file:
+    pickle.dump(updated_model_data, file)
+
     # Streamlit app code
     def main():
         st.title('Prediksi Harga Rumah')
