@@ -5,7 +5,6 @@ import pickle #import modul pickle yang digunakan untuk serialisasi dan deserial
 from PIL import Image  #import kelas Image dari modul PIL (Python Imaging Library) yang digunakan untuk memanipulasi gambar
 from streamlit_option_menu import option_menu  #pustaka yang memberikan fungsi tambahan untuk membuat menu pilihan dengan Streamlit
 from sklearn.linear_model import LinearRegression
-from sklearn.linear_model import LinearRegression
 from linear_regression_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.model_selection import train_test_split
@@ -88,6 +87,7 @@ elif choose=='Predict':
         best_y_train = model_data['best_y_train']
 
 # Function to normalize input data
+def main():
 def normalize_input_data(data):
     normalized_data = (data - np.mean(best_X_train, axis=0)) / np.std(best_X_train, axis=0)
     return normalized_data
@@ -104,7 +104,6 @@ def denormalize_data(data):
     return denormalized_data
 
 # Streamlit app code
-def main():
     st.title('Prediksi Harga Rumah')
 
     # Input form
