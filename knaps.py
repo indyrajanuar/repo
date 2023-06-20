@@ -12,7 +12,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_percentage_error #untuk menghitung dan mengukur tingkat kesalahan (eror) prediksi Anda.
 
 with st.sidebar:
-    choose = option_menu("Linear Regression (Polynomial)", ["Home", "Dataset", "Prepocessing", "Help", "Predict"],
+    choose = option_menu("Linear Regression (Polynomial)", ["Home", "Dataset", "Prepocessing", "Predict", "Help"],
                              icons=['house', 'table', 'boxes', 'boxes','check2-circle'],
                              menu_icon="app-indicator", default_index=0,
                              styles={
@@ -65,10 +65,7 @@ elif choose=='Prepocessing':
     st.write("Berdasarkan garis lurus atau linearnya")
     logo = Image.open('dataset3.png')
     st.image(logo, caption='')
-
-elif choose=='Help':
-    st.markdown('<h1 style = "text-align: center;"> Panduan : </h1><ol type = "1" style = "text-align: justify; background-color: #00FFFF; padding: 30px; border-radius: 20px;"><li><i><b>Cara View Dataset</b></i> <ol type = "a"><li>Masuk ke sistem</li><li>Pilih menu dataset</li></ol></li><li><i><b>Cara Prediksi Harga</b></i> <ol type = "a"><li>Pilih menu predict</li><li>Pilih LT dan LB</li><li>Klik tombol prediksi</li></ol></li></ol>', unsafe_allow_html = True)
-       
+      
 elif choose=='Predict':
     st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
     logo = Image.open('eror.png')
@@ -135,5 +132,9 @@ def main():
     st.subheader('Hasil Prediksi')
     st.write(prediction[0])
     
+if choose == 'Help':
+    st.markdown('<h1 style="text-align: center;"> Panduan : </h1><ol type="1" style="text-align: justify; background-color: #00FFFF; padding: 30px; border-radius: 20px;"><li><i><b>Cara View Dataset</b></i> <ol type="a"><li>Masuk ke sistem</li><li>Pilih menu dataset</li></ol></li><li><i><b>Cara Prediksi Harga</b></i> <ol type="a"><li>Pilih menu predict</li><li>Pilih LT dan LB</li><li>Klik tombol prediksi</li></ol></li></ol>', unsafe_allow_html=True)
+
+# Menjalankan aplikasi Streamlit
 if __name__ == "__main__":
     main()
