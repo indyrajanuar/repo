@@ -98,7 +98,10 @@ if choose == 'Predict':
         normalized_data = normalize_input_data(data)
         expanded_data = model.expand_features(normalized_data, degree=2)
         return expanded_data
-
+        
+    def expand_input_features(data):
+    expanded_data = model.transform(data)
+    return expanded_data
 
     # Function to denormalize predicted data
     def denormalize_data(data):
