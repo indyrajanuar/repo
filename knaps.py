@@ -76,13 +76,13 @@ if choose=='Predict':
     model.pkl, headers = urllib.request.urlretrieve(url)
     # Load the model
     with open('model.pkl','rb') as file:
-    model_data = pickle.load(file)
-    model = model_data['model']
-    X_train_expanded = model_data['X_train_expanded']
-    y_train_mean = model_data['y_train_mean']
-    y_train_std = model_data['y_train_std']
-    best_X_train = model_data['best_X_train']
-    best_y_train = model_data['best_y_train']
+        model_data = pickle.load(file)
+        model = model_data['model']
+        X_train_expanded = model_data['X_train_expanded']
+        y_train_mean = model_data['y_train_mean']
+        y_train_std = model_data['y_train_std']
+        best_X_train = model_data['best_X_train']
+        best_y_train = model_data['best_y_train']
 
 # Function to normalize input data
 def normalize_input_data(data):
