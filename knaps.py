@@ -65,7 +65,7 @@ if choose=='Prepocessing':
     logo = Image.open('dataset3.png')
     st.image(logo, caption='')
     
- if choose=='Predict':
+  if choose=='Predict':
     st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
     logo = Image.open('eror.png')
     st.image(logo, caption='')
