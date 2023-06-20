@@ -115,7 +115,10 @@ if choose == 'Predict':
         input_data_2 = st.number_input('Luas Bangunan', value=2.0)
 
         # Check if input values are numeric
-        if not input_data_1.isnumeric() or not input_data_2.isnumeric():
+        try:
+            input_feature_1 = float(input_data_1)
+            input_feature_2 = float(input_data_2)
+        except ValueError:
             st.error('Please enter numeric values for the input features.')
             return
 
