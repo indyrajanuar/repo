@@ -6,6 +6,7 @@ from PIL import Image  #import kelas Image dari modul PIL (Python Imaging Librar
 from streamlit_option_menu import option_menu  #pustaka yang memberikan fungsi tambahan untuk membuat menu pilihan dengan Streamlit
 from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import PolynomialFeatures
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_percentage_error #untuk menghitung dan mengukur tingkat kesalahan (eror) prediksi Anda.
 
@@ -98,10 +99,6 @@ if choose == 'Predict':
         normalized_data = normalize_input_data(data)
         expanded_data = model.expand_features(normalized_data, degree=2)
         return expanded_data
-        
-    def expand_input_features(data):
-    expanded_data = model.transform(data)
-    return expanded_data
 
     # Function to denormalize predicted data
     def denormalize_data(data):
