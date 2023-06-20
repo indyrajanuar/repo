@@ -73,7 +73,9 @@ if choose=='Predict':
 
     # Mendownload file model.pkl
     url = 'https://raw.githubusercontent.com/Shintaalya/repo/main/model.pkl'
-    model.pkl, headers = urllib.request.urlretrieve(url)
+    filename = 'model.pkl'  # Nama file yang akan disimpan secara sementara
+    urllib.request.urlretrieve(url, filename)
+    
     # Load the model
     with open('model.pkl','rb') as file:
         model_data = pickle.load(file)
