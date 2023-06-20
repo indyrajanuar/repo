@@ -68,9 +68,6 @@ if choose=='Predict':
     st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
     logo = Image.open('eror.png')
     st.image(logo, caption='')
-    pilih_LT = st.selectbox(
-        'Pilih LT',
-        ('1', '2', '3' , '4', '5', '6', '7', '8', '9', '10'))
     btn = st.button('Prediksi')
     choose = st.radio(
     'Choose an option',
