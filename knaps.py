@@ -68,6 +68,7 @@ if choose=='Predict':
     st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
     logo = Image.open('eror.png')
     st.image(logo, caption='')
+    import pickle
     model_data = pickle.load(file)
     model = model_data['model']
     X_train_expanded = model_data['X_train_expanded']
