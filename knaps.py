@@ -104,9 +104,6 @@ if choose=='Predict':
 
     # Streamlit app code
     def main():
-    choose = st.selectbox("Choose", ("Input", "Predict"))
-
-    if choose == 'Input':
         st.title('Prediksi Harga Rumah')
 
         # Input form
