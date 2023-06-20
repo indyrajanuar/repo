@@ -90,7 +90,7 @@ if choose=='Predict':
         model.fit(X_train, y_train)
 
         # Membuat prediksi
-        input_data = [[float(LT)]]
+        input_data = [[float(LT),float(LB)]]
         y_pred = model.predict(input_data)
 
         hasil = int(y_pred[0])
