@@ -60,12 +60,13 @@ if choose=='Prepocessing':
     st.write("Diseleksi menjadi 2 Fitur")
     logo = Image.open('dataset2.png')
     st.image(logo, caption='')
-   
-    
+    st.write("Berdasarkan garis lurus atau linearnya")
+    logo = Image.open('dataset3.png')
+    st.image(logo, caption='')
     
 if choose=='Predict':
     st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
-    logo = Image.open('plot_mape.png')
+    logo = Image.open('eror.png')
     st.image(logo, caption='')
     pilih_LT = st.selectbox(
         'Pilih LT',
