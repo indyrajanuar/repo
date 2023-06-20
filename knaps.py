@@ -131,5 +131,5 @@ def denormalize_data(data):
     # Display the prediction
     st.subheader('Hasil Prediksi')
     st.write(prediction[0])
-if __name__ == "__main__":
+if __name__ == "__mainn__":
     mainn()
