@@ -72,8 +72,6 @@ if choose=='Predict':
     'Choose an option',
     ('Predict', 'Hasil')
 )
-  if choose == 'Predict':
-    st.markdown('<h1 style="text-align: center;">Prediksi Harga Rumah</h1>', unsafe_allow_html=True)
     
     LT = st.text_input('Masukkan Nilai LT')
     LB = st.text_input('Masukkan Nilai LB')
