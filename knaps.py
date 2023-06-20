@@ -23,12 +23,7 @@ with st.sidebar:
 if choose=='Home':
     st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
     logo = Image.open('makam.jpeg')
-    st.markdown(
-    f'<div style="display: flex; justify-content: center;">'
-    f'<img src="data:image/jpeg;base64,{logo}" style="width: 400px; height: 400px;">'
-    f'</div>',
-    unsafe_allow_html=True
-    )
+    st.image(logo, use_column_width=True, caption='Logo Makam')
     st.image(logo, caption='')
     st.write('<p style = "text-align: justify;">Rumah merupakan salah satu kebutuhan pokok manusia, selain sandang dan pangan, rumah juga berfungsi sebagai tempat tinggal dan berfungsi untuk melindungi dari gangguan iklim dan makhluk hidup lainnya. Tak kalah buruknya dengan emas, rumah pun bisa dijadikan sebagai sarana investasi masa depan karena pergerakan harga yang berubah dari waktu ke waktu, dan semakin banyak orang yang membutuhkan hunian selain kedekatan dengan tempat kerja, pusat perkantoran dan pusat bisnis, transportasi. dll tentunya akan cepat mempengaruhi harga rumah tersebut.</p>', unsafe_allow_html = True)
     st.write(" ")
