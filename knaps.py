@@ -95,12 +95,19 @@ if choose=='Predict':
 def normalize_input_data(data):
     normalized_data = (data - np.mean(best_X_train, axis=0)) / np.std(best_X_train, axis=0)
     return normalized_data
-
+    
 # Function to expand input features
 def expand_input_features(data):
     normalized_data = normalize_input_data(data)
-    expanded_data = model.expand_features(normalized_data, degree=2)
+    # Perform feature expansion here
+    expanded_data = perform_feature_expansion(normalized_data, degree=2)
     return expanded_data
+
+# Function to perform feature expansion
+def perform_feature_expansion(data, degree):
+    # Implement your feature expansion logic here
+    # Return the expanded features
+    return expanded_features
 
 # Function to denormalize predicted data
 def denormalize_data(data):
