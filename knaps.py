@@ -64,8 +64,8 @@ if choose=='Prepocessing':
     logo = Image.open('dataset3.png')
     st.image(logo, caption='')
     
-if choose=='Predict':
-    st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
+if choose == 'Predict':
+    st.markdown('<h1 style="text-align: center;">Prediksi Harga Rumah</h1>', unsafe_allow_html=True)
     logo = Image.open('eror.png')
     st.image(logo, caption='')
     import pickle
@@ -75,9 +75,9 @@ if choose=='Predict':
     url = 'https://raw.githubusercontent.com/Shintaalya/repo/main/model.pkl'
     filename = 'model.pkl'  # Nama file yang akan disimpan secara sementara
     urllib.request.urlretrieve(url, filename)
-    
+
     # Load the model
-    with open('model.pkl','rb') as file:
+    with open('model.pkl', 'rb') as file:
         model_data = pickle.load(file)
         model = model_data['model']
         X_train_expanded = model_data['X_train_expanded']
@@ -86,10 +86,12 @@ if choose=='Predict':
         best_X_train = model_data['best_X_train']
         best_y_train = model_data['best_y_train']
 
+
     # Function to normalize input data
     def normalize_input_data(data):
         normalized_data = (data - np.mean(best_X_train, axis=0)) / np.std(best_X_train, axis=0)
         return normalized_data
+
 
     # Function to expand input features
     def expand_input_features(data):
@@ -97,21 +99,32 @@ if choose=='Predict':
         expanded_data = model.expand_features(normalized_data, degree=2)
         return expanded_data
 
+
     # Function to denormalize predicted data
     def denormalize_data(data):
         denormalized_data = (data * y_train_std) + y_train_mean
         return denormalized_data
+
 
     # Streamlit app code
     def main():
         st.title('Prediksi Harga Rumah')
 
         # Input form
-        input_data_1 = st.slider('Luas Tanah', 0.0, 100.0, 50.0)
-        input_data_2 = st.slider('Luas Bangunan', 0.0, 100.0, 50.0)
+        input_data_1 = st.text_input('Luas Tanah', '1.0')
+        input_data_2 = st.text_input('Luas Bangunan', '2.0')
+
+        # Check if input values are numeric
+        if not input_data_1.isnumeric() or not input_data_2.isnumeric():
+            st.error('Please enter numeric values for the input features.')
+            return
+
+        # Convert input values to float
+        input_feature_1 = float(input_data_1)
+        input_feature_2 = float(input_data_2)
 
         # Normalize and expand input features
-        input_features = np.array([[input_data_1, input_data_2]])
+        input_features = np.array([[input_feature_1, input_feature_2]])
         expanded_input = expand_input_features(input_features)
 
         # Perform prediction
@@ -121,6 +134,7 @@ if choose=='Predict':
         # Display the prediction
         st.subheader('Prediction')
         st.write(prediction[0])
+
 
 if __name__ == '__main__':
     main()
