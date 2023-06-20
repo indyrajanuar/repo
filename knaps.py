@@ -70,7 +70,6 @@ if choose=='Predict':
     st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
     logo = Image.open('eror.png')
     st.image(logo, caption='')
-    import pickle
     import urllib.request
 
     # Mendownload file model.pkl
@@ -105,7 +104,6 @@ def denormalize_data(data):
     return denormalized_data
 
 # Streamlit app code
-def main():
     st.title('Prediksi Harga Rumah')
 
     # Input form
@@ -132,6 +130,3 @@ def main():
     # Display the prediction
     st.subheader('Hasil Prediksi')
     st.write(prediction[0])
-
-if __name__ == "__main__":
-    main()
