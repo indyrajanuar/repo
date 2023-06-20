@@ -72,30 +72,32 @@ if choose=='Predict':
     'Choose an option',
     ('Predict', 'Hasil')
 )
+  if choose == 'Predict':
+    st.markdown('<h1 style="text-align: center;">Prediksi Harga Rumah</h1>', unsafe_allow_html=True)
     
-    b = st.text_input('Masukkan Nilai LT')
-    c = st.text_input('Masukkan Nilai LB')
+    LT = st.text_input('Masukkan Nilai LT')
+    LB = st.text_input('Masukkan Nilai LB')
 
     btn = st.button('Prediksi')
-    
     if btn:
         df = pd.read_csv('https://raw.githubusercontent.com/Shintaalya/repo/main/HARGA%20RUMAH%20JAKSEL.csv')
-        X = df['LT']
-        y = df['LB']
-        X = X.values.reshape(-1, 1)
-        y = y.values.reshape(-1, 1)
+        X = df[['LT']]  # Memilih kolom LT sebagai fitur
+        y = df['LB']    # Memilih kolom LB sebagai target
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, shuffle=False)
+
+        # Inisialisasi model Linear Regression
+        model = LinearRegression()
 
         # Melatih model
         model.fit(X_train, y_train)
 
         # Membuat prediksi
-        input_data = [[float(b), float(c)]]
+        input_data = [[float(LT)]]
         y_pred = model.predict(input_data)
 
         hasil = int(y_pred[0])
 
-        st.write('Prediksi Harga dengan LT:', b, 'dan LB:', c, 'adalah', hasil, 'pengunjung')
+        st.write('Prediksi Harga dengan LT:', LT, 'dan LB:', LB, 'adalah', hasil, 'pengunjung')
 
 if choose=='Help':
     st.markdown('<h1 style = "text-align: center;"> Panduan : </h1><ol type = "1" style = "text-align: justify; background-color: #00FFFF; padding: 30px; border-radius: 20px;"><li><i><b>Cara View Dataset</b></i> <ol type = "a"><li>Masuk ke sistem</li><li>Pilih menu dataset</li></ol></li><li><i><b>Cara Prediksi Harga</b></i> <ol type = "a"><li>Pilih menu predict</li><li>Pilih bulan</li><li>Klik tombol prediksi</li></ol></li></ol>', unsafe_allow_html = True)
