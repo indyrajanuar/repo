@@ -6,6 +6,7 @@ from PIL import Image  #import kelas Image dari modul PIL (Python Imaging Librar
 from streamlit_option_menu import option_menu  #pustaka yang memberikan fungsi tambahan untuk membuat menu pilihan dengan Streamlit
 from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import LinearRegression
+from linear_regression_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_percentage_error #untuk menghitung dan mengukur tingkat kesalahan (eror) prediksi Anda.
