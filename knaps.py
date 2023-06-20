@@ -72,21 +72,36 @@ if choose=='Predict':
         'Pilih LT',
         ('1', '2', '3' , '4', '5', '6', '7', '8', '9', '10'))
     btn = st.button('Prediksi')
+    choose = st.radio(
+    'Choose an option',
+    ('Predict', 'Other Options')
+)
+
+if choose == 'Predict':
+    st.markdown('<h1 style="text-align: center;">Prediksi Harga Rumah</h1>', unsafe_allow_html=True)
+    
+    X = st.text_input('Masukkan Nilai LT', value='1')
+    y = st.text_input('Masukkan Nilai LB', value='1')
+
+    btn = st.button('Prediksi')
     if btn:
         df = pd.read_csv('https://raw.githubusercontent.com/Shintaalya/repo/main/HARGA%20RUMAH%20JAKSEL.csv')
-        X = df['Bulan']
-        y = df['Jumlah']
+        X = df['LT']
+        y = df['LB']
         X = X.values.reshape(-1, 1)
         y = y.values.reshape(-1, 1)
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1,shuffle=False)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, shuffle=False)
+
         # Melatih model
         model.fit(X_train, y_train)
-        # Membuat prediksi pada data testing
-        # y_pred = model.predict(X_test)
-      
-        y_pred = model.predict([[b]])
+
+        # Membuat prediksi
+        input_data = [[float(b), float(c)]]
+        y_pred = model.predict(input_data)
+
         hasil = int(y_pred[0])
-        st.write('Prediksi Harga', b,'sebanyak :', hasil, 'pengunjung')
+
+        st.write('Prediksi Harga dengan LT:', b, 'dan LB:', c, 'adalah', hasil, 'pengunjung')
 
 if choose=='Help':
     st.markdown('<h1 style = "text-align: center;"> Panduan : </h1><ol type = "1" style = "text-align: justify; background-color: #00FFFF; padding: 30px; border-radius: 20px;"><li><i><b>Cara View Dataset</b></i> <ol type = "a"><li>Masuk ke sistem</li><li>Pilih menu dataset</li></ol></li><li><i><b>Cara Prediksi Harga</b></i> <ol type = "a"><li>Pilih menu predict</li><li>Pilih bulan</li><li>Klik tombol prediksi</li></ol></li></ol>', unsafe_allow_html = True)
