@@ -68,19 +68,16 @@ if choose=='Predict':
     st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
     logo = Image.open('eror.png')
     st.image(logo, caption='')
-    btn = st.button('Prediksi')
     choose = st.radio(
     'Choose an option',
-    ('Predict', 'Other Options')
+    ('Predict', 'Hasil')
 )
-
-if choose == 'Predict':
-    st.markdown('<h1 style="text-align: center;">Prediksi Harga Rumah</h1>', unsafe_allow_html=True)
     
-    X = st.text_input('Masukkan Nilai LT', value='1')
-    y = st.text_input('Masukkan Nilai LB', value='1')
+    b = st.text_input('Masukkan Nilai LT')
+    c = st.text_input('Masukkan Nilai LB')
 
     btn = st.button('Prediksi')
+    
     if btn:
         df = pd.read_csv('https://raw.githubusercontent.com/Shintaalya/repo/main/HARGA%20RUMAH%20JAKSEL.csv')
         X = df['LT']
