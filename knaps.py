@@ -116,8 +116,6 @@ def main():
     if not input_data_1.isnumeric() or not input_data_2.isnumeric():
         st.error('Please enter numeric values for the input features.')
         return
-if __name__ == "__main__":
-    main()
     
     # Convert input values to float
     input_feature_1 = float(input_data_1)
@@ -134,7 +132,7 @@ if __name__ == "__main__":
     # Display the prediction
     st.subheader('Hasil Prediksi')
     st.write(prediction[0])
-
+    main()
 
 if choose=='Help':
     st.markdown('<h1 style = "text-align: center;"> Panduan : </h1><ol type = "1" style = "text-align: justify; background-color: #00FFFF; padding: 30px; border-radius: 20px;"><li><i><b>Cara View Dataset</b></i> <ol type = "a"><li>Masuk ke sistem</li><li>Pilih menu dataset</li></ol></li><li><i><b>Cara Prediksi Harga</b></i> <ol type = "a"><li>Pilih menu predict</li><li>Pilih LT dan LB</li><li>Klik tombol prediksi</li></ol></li></ol>', unsafe_allow_html = True)
