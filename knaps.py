@@ -69,6 +69,8 @@ if choose=='Predict':
     logo = Image.open('eror.png')
     st.image(logo, caption='')
     import pickle
+    # Load the model
+    with open('model.pkl', 'rb') as file:
     model_data = pickle.load(file)
     model = model_data['model']
     X_train_expanded = model_data['X_train_expanded']
