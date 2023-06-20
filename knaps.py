@@ -12,8 +12,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_percentage_error #untuk menghitung dan mengukur tingkat kesalahan (eror) prediksi Anda.
 
 with st.sidebar:
-    choose = option_menu("Linear Regression (Polynomial)", ["Home", "Dataset", "Prepocessing", "Help", "Predict"],
-                             icons=['house', 'table', 'boxes','check2-circle', 'boxes'],
+    choose = option_menu("Linear Regression (Polynomial)", ["Home", "Dataset", "Prepocessing", "Predict"],
+                             icons=['house', 'table', 'boxes', 'boxes'],
                              menu_icon="app-indicator", default_index=0,
                              styles={
             "container": {"padding": "5!important", "background-color": "10A19D"},
@@ -65,10 +65,7 @@ if choose=='Prepocessing':
     st.write("Berdasarkan garis lurus atau linearnya")
     logo = Image.open('dataset3.png')
     st.image(logo, caption='')
-    
-if choose == 'Help':
-    st.markdown('<h1 style="text-align: center;"> Panduan : </h1><ol type="1" style="text-align: justify; background-color: #00FFFF; padding: 30px; border-radius: 20px;"><li><i><b>Cara View Dataset</b></i> <ol type="a"><li>Masuk ke sistem</li><li>Pilih menu dataset</li></ol></li><li><i><b>Cara Prediksi Harga</b></i> <ol type="a"><li>Pilih menu predict</li><li>Pilih LT dan LB</li><li>Klik tombol prediksi</li></ol></li></ol>', unsafe_allow_html=True)
-    
+        
 if choose=='Predict':
     st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
     logo = Image.open('eror.png')
