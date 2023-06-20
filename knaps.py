@@ -1,13 +1,13 @@
-import streamlit as st
-import pandas as pd
-import numpy as np
-import pickle
-from PIL import Image
-from streamlit_option_menu import option_menu
+import streamlit as st #import modul Streamlit yang digunakan untuk membangun antarmuka pengguna
+import pandas as pd #import modul pandas yang digunakan untuk analisis data
+import numpy as np #import modul numpy
+import pickle #import modul pickle yang digunakan untuk serialisasi dan deserialisasi objek Python
+from PIL import Image  #import kelas Image dari modul PIL (Python Imaging Library) yang digunakan untuk memanipulasi gambar
+from streamlit_option_menu import option_menu  #pustaka yang memberikan fungsi tambahan untuk membuat menu pilihan dengan Streamlit
 from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_absolute_percentage_error
+from sklearn.metrics import mean_absolute_percentage_error #untuk menghitung dan mengukur tingkat kesalahan (eror) prediksi Anda.
 
 with st.sidebar:
     choose = option_menu("Linear Regression (Polynomial)", ["Home", "Dataset", "Prepocessing", "Predict", "Help"],
@@ -39,13 +39,13 @@ if choose=='Home':
     st.write(" ")
     st.write(" ")
     st.write(" ")
-    st.write("Dr. Indah Agustien Siradjuddin")
+    st.write("Dr. Indah Agustien Siradjuddin,S.Kom.,M.Kom")
 
 if choose=='Dataset':
-    st.markdown('<h1 style = "text-align: center;"> Data Harga Rumah </h1>', unsafe_allow_html = True)
+    st.markdown('<h1 style = "text-align: center;"> Data Harga Rumah </h1>', unsafe_allow_html = True) #untuk menentukan apakah Streamlit harus mengizinkan HTML dalam teks Markdown
     df = pd.read_csv('https://raw.githubusercontent.com/Shintaalya/repo/main/HARGA%20RUMAH%20JAKSEL.csv')
     df
-    st.markdown('<h1 style = "text-align: center;"> Fitur Dataset: </h1><ol type = "1" style = "text-align: justify; background-color: #00FFFF; padding: 30px; border-radius: 20px;"><p>Dataset ini diambil dari kaggle.com</p><li><i><b>HARGA</b></i> = harga dari rumah</li><li><i><b>LT</b></i> = Jumlah Luas Tanah</li><li><i><b>LB</b></i> = Jumlah Luas Bangunan</li><li><i><b>JKT</b></i> = Jumlah Kamar Tidur</li><li><i><b>JKM</b></i> = Jumlah Kamar Mandi</li><li><i><b>GRS</b></i> = Ada / Tidak Ada</li><li><i><b>KOTA</b></i> = Nama Kota</li></ol>', unsafe_allow_html = True)
+    st.markdown('<h1 style = "text-align: center;"> Fitur Dataset: </h1><ol type = "1" style = "text-align: justify; background-color: #00FFFF; padding: 30px; border-radius: 20px;"><p>Dataset ini diambil dari kaggle.com</p><li><i><b>HARGA</b></i> = harga dari rumah</li><li><i><b>LT</b></i> = Jumlah Luas Tanah</li><li><i><b>LB</b></i> = Jumlah Luas Bangunan</li><li><i><b>JKT</b></i> = Jumlah Kamar Tidur</li><li><i><b>JKM</b></i> = Jumlah Kamar Mandi</li><li><i><b>GRS</b></i> = Ada / Tidak Ada</li></ol>', unsafe_allow_html = True)
 
 if choose=='Prepocessing':
     st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
