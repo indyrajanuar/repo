@@ -107,8 +107,8 @@ if choose=='Predict':
         st.title('Prediksi Harga Rumah')
 
         # Input form
-        input_data_1 = st.text_input('Luas Tanah', '1.0')
-        input_data_2 = st.text_input('Luas Bangunan', '2.0')
+        input_data_1 = st.text_input('Luas Tanah')
+        input_data_2 = st.text_input('Luas Bangunan')
 
         # Tombol prediksi
         if st.button('Prediksi'):
