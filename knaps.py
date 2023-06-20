@@ -76,6 +76,10 @@ if choose=='Predict':
     url = 'https://raw.githubusercontent.com/Shintaalya/repo/main/model.pkl'
     filename = 'model.pkl'  # Nama file yang akan disimpan secara sementara
     urllib.request.urlretrieve(url, filename)
+
+    url_new_file = 'https://raw.githubusercontent.com/Shintaalya/repo/main/linear_regression_model.py'  # Ganti dengan URL file baru yang ingin Anda tambahkan
+    filename_new_file = 'linear_regression_model.py'  # Ganti dengan nama file baru yang Anda inginkan
+    urllib.request.urlretrieve(url_new_file, filename_new_file)
     
     # Load the model
     with open('model.pkl','rb') as file:
