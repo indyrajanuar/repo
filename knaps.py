@@ -133,7 +133,7 @@ def main():
     st.subheader('Hasil Prediksi')
     st.write(prediction[0])
     
-    if __name__ == "__main__":
+if __name__ == "__main__":
     main()
 
 if choose=='Help':
