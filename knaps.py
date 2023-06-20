@@ -65,7 +65,7 @@ if choose=='Prepocessing':
     logo = Image.open('dataset3.png')
     st.image(logo, caption='')
     
-if choose=='Predict':
+ if choose=='Predict':
     st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
     logo = Image.open('eror.png')
     st.image(logo, caption='')
@@ -76,10 +76,6 @@ if choose=='Predict':
     url = 'https://raw.githubusercontent.com/Shintaalya/repo/main/model.pkl'
     filename = 'model.pkl'  # Nama file yang akan disimpan secara sementara
     urllib.request.urlretrieve(url, filename)
-
-    url_new_file = 'https://raw.githubusercontent.com/Shintaalya/repo/main/linear_regression_model.py'  # Ganti dengan URL file baru yang ingin Anda tambahkan
-    filename_new_file = 'linear_regression_model.py'  # Ganti dengan nama file baru yang Anda inginkan
-    urllib.request.urlretrieve(url_new_file, filename_new_file)
     
     # Load the model
     with open('model.pkl','rb') as file:
@@ -95,19 +91,12 @@ if choose=='Predict':
 def normalize_input_data(data):
     normalized_data = (data - np.mean(best_X_train, axis=0)) / np.std(best_X_train, axis=0)
     return normalized_data
-    
+
 # Function to expand input features
 def expand_input_features(data):
     normalized_data = normalize_input_data(data)
-    # Perform feature expansion here
-    expanded_data = perform_feature_expansion(normalized_data, degree=2)
+    expanded_data = model.expand_features(normalized_data, degree=2)
     return expanded_data
-
-# Function to perform feature expansion
-def perform_feature_expansion(data, degree):
-    # Implement your feature expansion logic here
-    # Return the expanded features
-    return expanded_features
 
 # Function to denormalize predicted data
 def denormalize_data(data):
@@ -119,8 +108,8 @@ def main():
     st.title('Prediksi Harga Rumah')
 
     # Input form
-    input_data_1 = st.text_input('Luas Tanah', '')
-    input_data_2 = st.text_input('Luas Bangunan', '')
+    input_data_1 = st.text_input('Luas Tanah', '1.0')
+    input_data_2 = st.text_input('Luas Bangunan', '2.0')
 
     # Check if input values are numeric
     if not input_data_1.isnumeric() or not input_data_2.isnumeric():
