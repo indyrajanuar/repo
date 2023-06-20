@@ -132,6 +132,7 @@ def main():
     # Display the prediction
     st.subheader('Hasil Prediksi')
     st.write(prediction[0])
+    
     if __name__ == "__main__":
     main()
 
