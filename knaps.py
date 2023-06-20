@@ -104,34 +104,26 @@ if choose=='Predict':
 
     # Streamlit app code
     def main():
+    choose = st.selectbox("Choose", ("Input", "Predict"))
+
+    if choose == 'Input':
         st.title('Prediksi Harga Rumah')
 
         # Input form
-        input_data_1 = st.text_input('Luas Tanah')
-        input_data_2 = st.text_input('Luas Bangunan')
+        input_data_1 = st.slider('Luas Tanah', 0.0, 100.0, 50.0)
+        input_data_2 = st.slider('Luas Bangunan', 0.0, 100.0, 50.0)
 
-        # Tombol prediksi
-        if st.button('Prediksi'):
-            # Check if input values are numeric
-            if not input_data_1.isnumeric() or not input_data_2.isnumeric():
-                st.error('Please enter numeric values for the input features.')
-                return
+        # Normalize and expand input features
+        input_features = np.array([[input_data_1, input_data_2]])
+        expanded_input = expand_input_features(input_features)
 
-            # Convert input values to float
-            input_feature_1 = float(input_data_1)
-            input_feature_2 = float(input_data_2)
+        # Perform prediction
+        normalized_prediction = model.predict(expanded_input)
+        prediction = denormalize_data(normalized_prediction)
 
-            # Normalize and expand input features
-            input_features = np.array([[input_feature_1, input_feature_2]])
-            expanded_input = expand_input_features(input_features)
-
-            # Perform prediction
-            normalized_prediction = model.predict(expanded_input)
-            prediction = denormalize_data(normalized_prediction)
-
-            # Display the prediction
-            st.subheader('Prediction')
-            st.write(prediction[0])
+        # Display the prediction
+        st.subheader('Prediction')
+        st.write(prediction[0])
 
 if __name__ == '__main__':
     main()
