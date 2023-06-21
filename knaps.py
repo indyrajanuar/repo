@@ -87,23 +87,23 @@ elif choose=='Predict':
             best_y_train = model_data['best_y_train']
     
     # Function to normalize input data
-    def normalize_input_data(data):
+def normalize_input_data(data):
         normalized_data = (data - np.mean(best_X_train, axis=0)) / np.std(best_X_train, axis=0)
         return normalized_data
     
     # Function to expand input features
-    def expand_input_features(data):
+def expand_input_features(data):
         normalized_data = normalize_input_data(data)
         expanded_data = model.expand_features(normalized_data, degree=2)
         return expanded_data
     
     # Function to denormalize predicted data
-    def denormalize_data(data):
+def denormalize_data(data):
         denormalized_data = (data * y_train_std) + y_train_mean
         return denormalized_data
     
     # Streamlit app code
-    def main():
+def main():
         st.title('Prediksi Harga Rumah')
     
         # Input form
@@ -131,9 +131,9 @@ elif choose=='Predict':
         st.subheader('Hasil Prediksi')
         st.write(prediction[0])
         
-    if choose == 'Help':
+if choose == 'Help':
         st.markdown('<h1 style="text-align: center;"> Panduan : </h1><ol type="1" style="text-align: justify; background-color: #00FFFF; padding: 30px; border-radius: 20px;"><li><i><b>Cara View Dataset</b></i> <ol type="a"><li>Masuk ke sistem</li><li>Pilih menu dataset</li></ol></li><li><i><b>Cara Prediksi Harga</b></i> <ol type="a"><li>Pilih menu predict</li><li>Pilih LT dan LB</li><li>Klik tombol prediksi</li></ol></li></ol>', unsafe_allow_html=True)
     
     # Menjalankan aplikasi Streamlit
-    if __name__ == "__main__":
+if __name__ == "__main__":
         main()
