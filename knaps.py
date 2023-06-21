@@ -21,6 +21,20 @@ with st.sidebar:
             "nav-link-selected": {"background-color": "#00FFFF"},
         }
         )
+def normalize_input_data(data):
+    normalized_data = (data - np.mean(best_X_train, axis=0)) / np.std(best_X_train, axis=0)
+    return normalized_data
+
+# Function to expand input features
+def expand_input_features(data):
+    normalized_data = normalize_input_data(data)
+    expanded_data = model.expand_features(normalized_data, degree=2)
+    return expanded_data
+
+# Function to denormalize predicted data
+def denormalize_data(data):
+    denormalized_data = (data * y_train_std) + y_train_mean
+    return denormalized_data
 if choose=='Home':
         st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
         logo = Image.open('makam1.jpg')
@@ -86,21 +100,6 @@ elif choose=='Predict':
             best_X_train = model_data['best_X_train']
             best_y_train = model_data['best_y_train']
     
-    # Function to normalize input data
-def normalize_input_data(data):
-        normalized_data = (data - np.mean(best_X_train, axis=0)) / np.std(best_X_train, axis=0)
-        return normalized_data
-    
-    # Function to expand input features
-def expand_input_features(data):
-        normalized_data = normalize_input_data(data)
-        expanded_data = model.expand_features(normalized_data, degree=2)
-        return expanded_data
-    
-    # Function to denormalize predicted data
-def denormalize_data(data):
-        denormalized_data = (data * y_train_std) + y_train_mean
-        return denormalized_data
     
     # Streamlit app code
 def main():
