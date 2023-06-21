@@ -21,7 +21,6 @@ with st.sidebar:
             "nav-link-selected": {"background-color": "#00FFFF"},
         }
         )
-    def main():
         if choose=='Home':
         st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
         logo = Image.open('makam1.jpg')
@@ -104,6 +103,7 @@ with st.sidebar:
         return denormalized_data
     
     # Streamlit app code
+    def main():
         st.title('Prediksi Harga Rumah')
     
         # Input form
