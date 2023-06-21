@@ -111,7 +111,7 @@ input_data_2 = st.text_input('Luas Bangunan', '200')
 # Check if input values are numeric
 if not input_data_1.isnumeric() or not input_data_2.isnumeric():
     st.error('Please enter numeric values for the input features.')
-        return
+return
         
 # Convert input values to float
 input_feature_1 = float(input_data_1)
