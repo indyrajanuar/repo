@@ -44,13 +44,13 @@ if choose=='Home':
         st.write(" ")
         st.write("Dr. Indah Agustien Siradjuddin,S.Kom.,M.Kom")
     
-    elif choose=='Dataset':
+elif choose=='Dataset':
         st.markdown('<h1 style = "text-align: center;"> Data Harga Rumah </h1>', unsafe_allow_html = True) #untuk menentukan apakah Streamlit harus mengizinkan HTML dalam teks Markdown
         df = pd.read_csv('https://raw.githubusercontent.com/Shintaalya/repo/main/HARGA%20RUMAH%20JAKSEL.csv')
         df
         st.markdown('<h1 style = "text-align: center;"> Fitur Dataset: </h1><ol type = "1" style = "text-align: justify; background-color: #00FFFF; padding: 30px; border-radius: 20px;"><p>Dataset ini diambil dari kaggle.com</p><li><i><b>HARGA</b></i> = harga dari rumah</li><li><i><b>LT</b></i> = Jumlah Luas Tanah</li><li><i><b>LB</b></i> = Jumlah Luas Bangunan</li><li><i><b>JKT</b></i> = Jumlah Kamar Tidur</li><li><i><b>JKM</b></i> = Jumlah Kamar Mandi</li><li><i><b>GRS</b></i> = Ada / Tidak Ada</li></ol>', unsafe_allow_html = True)
     
-    elif choose=='Prepocessing':
+elif choose=='Prepocessing':
         st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
         st.write("Dari 7 Fitur")
         logo = Image.open('dataset.png')
@@ -65,7 +65,7 @@ if choose=='Home':
         logo = Image.open('dataset3.png')
         st.image(logo, caption='')
           
-    elif choose=='Predict':
+elif choose=='Predict':
         st.markdown('<h1 style = "text-align: center;"> Prediksi Harga Rumah</h1>', unsafe_allow_html = True)
         logo = Image.open('eror.png')
         st.image(logo, caption='')
