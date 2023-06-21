@@ -120,8 +120,8 @@ def denormalize_data(data):
     return denormalized_data
 
 # Streamlit app code
+display_prediction_page()
 def main():
-    display_prediction_page()
     st.title('Prediksi Harga Rumah')
 
     # Input form
