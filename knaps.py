@@ -123,7 +123,6 @@ def denormalize_data(data):
 
 # Streamlit app code
     def display_prediction_page():
-    st.title('Prediksi Harga Rumah')
 
     # Input form
     input_data_1 = st.text_input('Luas Tanah', '100')
