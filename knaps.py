@@ -11,8 +11,7 @@ from sklearn.preprocessing import PolynomialFeatures
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_percentage_error #untuk menghitung dan mengukur tingkat kesalahan (eror) prediksi Anda.
 
-def main():
-    st.title('Prediksi Harga Rumah')
+
 with st.sidebar:
     choose = option_menu("Linear Regression (Polynomial)", ["Home", "Dataset", "Prepocessing", "Predict", "Help"],
                              icons=['house', 'table', 'boxes', 'boxes','check2-circle'],
@@ -122,7 +121,8 @@ def denormalize_data(data):
     return denormalized_data
 
 # Streamlit app code
-    def display_prediction_page():
+    def main():
+    st.title('Prediksi Harga Rumah')
 
     # Input form
     input_data_1 = st.text_input('Luas Tanah', '100')
